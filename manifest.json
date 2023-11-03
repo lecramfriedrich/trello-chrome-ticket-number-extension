@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Trello Card Numbers",
+  "version": "1.0",
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "description": "Display card numbers on Trello.com",
+  "permissions": ["tabs", "activeTab"],
+  "host_permissions": ["https://trello.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/trello16.png",
+      "48": "images/trello48.png",
+      "128": "images/trello128.png"
+    }
+  },
+  "icons": {
+    "16": "images/trello16.png",
+    "48": "images/trello48.png",
+    "128": "images/trello128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://trello.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
